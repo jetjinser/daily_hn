@@ -2,3 +2,6 @@
 .DS_store
 
 Cargo.lock
+
+.env*
+.direnv/
