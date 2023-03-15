@@ -8,7 +8,7 @@ const URI: &str = "https://news.ycombinator.com/front";
 #[no_mangle]
 pub fn run() {
     schedule_cron_job(
-        String::from("15 17 * * *"),
+        String::from("0 10 * * *"),
         String::from("cron_job_evoked"),
         callback,
     );
