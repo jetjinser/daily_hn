@@ -1,4 +1,4 @@
-use firebase_rs::{Firebase, Paramable, Requestable};
+use rusted_firebase::{Firebase, Paramable, Requestable};
 use schedule_flows::schedule_cron_job;
 use serde_json::Value;
 use slack_flows::send_message_to_channel;
