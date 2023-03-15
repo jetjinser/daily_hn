@@ -11,9 +11,5 @@ crate-type = ["cdylib"]
 slack-flows = "0.2.5"
 tokio_wasi = { version = "1.25.1", features = ["full"] }
 schedule-flows = "0.1.9"
-serde_json = "1.0.94"
-
-[dependencies.rusted-firebase]
-git = "https://github.com/jetjinser/firebase-rs"
-default-features = false
-features = ["wasmedge"]
+http_req_wasi = "0.10.2"
+select = "0.6.0"
