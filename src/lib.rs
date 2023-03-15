@@ -27,12 +27,17 @@ fn callback(_body: Vec<u8>) {
                 .find(Class("titleline"))
                 .zip(document.find(Class("hnuser")))
                 .filter_map(|(tl, user)| {
-                    tl.first_child().map(|node| {
-                        let title = node.text();
-                        let url = node.attr("href").unwrap_or_default();
+                    tl.first_child().zip(tl.last_child()).map(|(a, span)| {
+                        let title = a.text();
+                        let url = a.attr("href").unwrap_or_default();
                         let author = user.text();
+                        let site = span
+                            .find(Class("sitestr"))
+                            .next()
+                            .map(|span| span.text())
+                            .unwrap_or("source".to_string());
 
-                        format!("- *{title}*\n<{url}|source> by {author}\n")
+                        format!("- *{title}*\n<{url}|/{site}> by {author}\n")
                     })
                 })
                 .collect::<String>();
