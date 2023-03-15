@@ -32,7 +32,7 @@ fn callback(_body: Vec<u8>) {
                         let url = node.attr("href").unwrap_or_default();
                         let author = user.text();
 
-                        format!("- *{title}*\n<source|{url}> by {author}\n")
+                        format!("- *{title}*\n<{url}|source> by {author}\n")
                     })
                 })
                 .collect::<String>();
